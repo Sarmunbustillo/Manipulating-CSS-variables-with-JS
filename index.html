@@ -9,28 +9,16 @@
     <h2>Update CSS Variables with <span class="hl">JS</span></h2>
 
     <div class="controls">
-      <div>
-        <label for="blur">Blur:</label>
-        <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px" />
-      </div>
-      <div>
-        <label for="spacing">Spacing:</label>
-        <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px" />
-      </div>
-      <div>
-        <label for="base">Base Color</label>
-        <input id="base" type="color" name="base" value="#ffa061" />
-      </div>
-
-      <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" />
+      <label for="blur">Blur:</label>
+      <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px" />
+      <label for="spacing">Spacing:</label>
+      <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px" />
+      <label for="base">Base Color</label>
+      <input id="base" type="color" name="base" value="#ffc600" />
     </div>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
+    <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" />
+    <style>
       :root {
         --base: #ffa061;
         --spacing: 10px;
@@ -57,9 +45,7 @@
       }
 
       .controls {
-        margin-bottom: 500px;
-        display: flex;
-        flex-flow: column;
+        margin-bottom: 50px;
       }
 
       input {
