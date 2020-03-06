@@ -5,5 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS Variables with js</title>
   </head>
-  <body></body>
+  <body>
+    <h2>Update CSS Variables with <span class="hl">JS</span></h2>
+
+    <div class="controls">
+      <div>
+        <label for="blur">Blur:</label>
+        <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px" />
+      </div>
+      <div>
+        <label for="spacing">Spacing:</label>
+        <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px" />
+      </div>
+      <div>
+        <label for="base">Base Color</label>
+        <input id="base" type="color" name="base" value="#c9926d" />
+      </div>
+
+      <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" />
+    </div>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --base: #c9926d;
+        --spacing: 10px;
+        --blur: 10px;
+      }
+
+      img {
+        padding: var(--spacing);
+        background: var(--base);
+        filter: blur(var(--blur));
+      }
+
+      .hl {
+        color: var(--base);
+      }
+
+      body {
+        text-align: center;
+        background: #334f63f1;
+        color: white;
+        font-family: 'helvetica neue', sans-serif;
+        font-weight: 100;
+        font-size: 50px;
+      }
+
+      .controls {
+        margin-bottom: 500px;
+        border: 1px solid red;
+        display: flex;
+        flex-flow: column;
+      }
+
+      input {
+        width: 100px;
+      }
+    </style>
+
+    <script>
+      //select all inputs inside the div with the class controls
+      const inputs = document.querySelectorAll('.controls input');
+      const handleUpdate = input => {
+        const suffix = input.dataset.sizing || '';
+        document.documentElement.style.setProperty(`--${input.name}`, input.value + suffix);
+        console.log(input);
+      };
+
+      inputs.forEach(input => {
+        input.addEventListener('change', () => handleUpdate(input));
+        input.addEventListener('mousemove', () => handleUpdate(input));
+      });
+    </script>
+  </body>
 </html>
